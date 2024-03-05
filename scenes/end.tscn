@@ -1,0 +1,89 @@
+[gd_scene load_steps=13 format=3 uid="uid://clnbmvlv52ngy"]
+
+[ext_resource type="Texture2D" uid="uid://cgxk7gvts7s8q" path="res://assets/Items/Checkpoints/End/End (Pressed) (64x64).png" id="1_78xj8"]
+[ext_resource type="Script" path="res://scenes/end.gd" id="1_gjhw6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gnids"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8qlr"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xsjl"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3ihv"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vj431"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q314"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imupw"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j7e47"]
+atlas = ExtResource("1_78xj8")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vfcpt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gnids")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8qlr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xsjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3ihv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vj431")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2q314")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imupw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j7e47")
+}],
+"loop": true,
+"name": &"default",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrfud"]
+size = Vector2(57, 60)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_gjhw6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(7, 9)
+scale = Vector2(1.21875, 1.28125)
+sprite_frames = SubResource("SpriteFrames_vfcpt")
+autoplay = "default"
+frame = 3
+frame_progress = 0.968643
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(6.5, 21)
+shape = SubResource("RectangleShape2D_xrfud")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
